@@ -1,0 +1,74 @@
+<!-- Student Mark Predictor App GUI -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Student Mark Predictor ML App</title>
+
+  <style>
+
+    h1 { color: blue; }
+
+    .button_css {
+      color: #494949 !important;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: #ffffff;
+      padding: 20px;
+      border: 4px solid #494949 !important;
+      display: inline-block;
+      transition: all 0.4s ease 0s;
+    }
+
+    .button_css:hover {
+      color: #ffffff !important;
+      background: #f6b93b;
+      border-color: #f6b93b !important;
+      transition: all 0.4s ease 0s;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div>
+    <img src="{{ url_for('static', filename='images/college_banner2.png') }}"
+         alt="Banner"
+         style="width:100%">
+  </div>
+
+  <div class="login">
+
+    <center>
+
+      <form action="{{ url_for('predict') }}" method="post">
+
+        <h1>Enter Your Study Hours to Predict Marks</h1>
+
+        <input type="number"
+               name="study_hours"
+               placeholder="Study Hours"
+               required />
+
+        <br><br>
+
+        <button type="submit" class="button_css">
+          Predict Marks
+        </button>
+
+      </form>
+
+    </center>
+
+    <div>
+      <center>
+        <h2>{{ prediction_text }}</h2>
+      </center>
+    </div>
+
+  </div>
+
+</body>
+</html>
